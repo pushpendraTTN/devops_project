@@ -35,6 +35,14 @@ jobs:
             --exclude ".git/*" \
             --exclude ".github/*"
 
+      - name: Run basic tests
+
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          grep -q "DevOps Training" index.html
+
       - name: Verify deployment
         run: |
           aws s3 ls s3://${{ secrets.S3_BUCKET }}
