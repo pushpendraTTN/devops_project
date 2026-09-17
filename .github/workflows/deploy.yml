@@ -22,26 +22,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      # - name: Run basic tests
-      #   run: |
-      #     test -f index.html
-      #     test -f style.css
-      #     test -f script.js
-      #     grep -q "DevOps Training" index.html
+      - name: Run basic tests
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          grep -q "Hello from index.html" index.html
 
       - name: Deploy website to S3
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
             --exclude ".git/*" \
             --exclude ".github/*"
-
-      - name: Run basic tests
-
-        run: |
-          test -f index.html
-          test -f style.css
-          test -f script.js
-          grep -q "DevOps Training" index.html
 
       - name: Verify deployment
         run: |
