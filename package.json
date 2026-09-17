@@ -1,0 +1,15 @@
+{
+  "name": "devops-project",
+  "version": "1.0.0",
+  "description": "A simple static web project",
+  "main": "index.html",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir -p dist && cp index.html style.css script.js dist/",
+    "start": "npx --yes serve .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
